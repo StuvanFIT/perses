@@ -182,6 +182,7 @@ kt_jvm_library(
         "//src/org/perses/listminimizer:interfaces",
         "//src/org/perses/program",
         "//src/org/perses/reduction/event",
+        "//src/org/perses/reduction/io:reduction_folder",
         "//src/org/perses/reduction/io/token:token_reduction_io_manager",
         "//src/org/perses/spartree",
         "//src/org/perses/util",

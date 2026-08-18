@@ -21,6 +21,13 @@ class BestProgramUpdateEvent(
   currentTimeMillis: Long,
   val programSizeBefore: Int,
   programSizeAfter: Int,
+  /**
+   * The [org.perses.spartree.AbstractSparTreeEdit.id] of the edit that was applied to produce this
+   * new best program. It is ground truth for "this candidate was accepted", which cannot be
+   * inferred reliably from the token count alone: a replacement or Latra transformation can be
+   * applied while leaving the token count unchanged.
+   */
+  val editId: Int = UNKNOWN_EDIT_ID,
 ) : AbstractReductionEventWithProgramSize(currentTimeMillis, programSizeAfter) {
   init {
     // FIXME(cnsun): this also needs to check the num of chars of tokens in the case of ==.
@@ -32,4 +39,9 @@ class BestProgramUpdateEvent(
 
   override val prefixLabelFromRootToHere: String
     get() = currentFixpointIteration.prefixLabelFromRootToHere
+
+  companion object {
+    /** The value of [editId] when the notification site cannot supply it. */
+    const val UNKNOWN_EDIT_ID = -1
+  }
 }

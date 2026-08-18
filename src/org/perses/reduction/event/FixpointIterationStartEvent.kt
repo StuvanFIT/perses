@@ -77,6 +77,7 @@ class FixpointIterationStartEvent internal constructor(
     currentTimeMillis: Long,
     programSizeBefore: Int,
     programSizeAfter: Int,
+    editId: Int = BestProgramUpdateEvent.UNKNOWN_EDIT_ID,
   ): BestProgramUpdateEvent {
     check(!ended)
     return BestProgramUpdateEvent(
@@ -84,6 +85,7 @@ class FixpointIterationStartEvent internal constructor(
       currentTimeMillis = currentTimeMillis,
       programSizeBefore = programSizeBefore,
       programSizeAfter = programSizeAfter,
+      editId = editId,
     )
   }
 

@@ -712,6 +712,7 @@ abstract class AbstractProgramReductionDriver(
               currentTimeMillis = System.currentTimeMillis(),
               programSizeBefore = event.programSizeBefore,
               programSizeAfter = event.program.tokenCount,
+              editId = event.editId,
             ),
           )
         }

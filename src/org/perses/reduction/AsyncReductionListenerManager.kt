@@ -46,6 +46,7 @@ import org.perses.spartree.AbstractSparTreeEdit
 import org.perses.util.DaemonThreadPool
 import org.perses.util.FileNameContentPair
 import java.io.Closeable
+import java.nio.file.Path
 import kotlin.Exception
 
 class AsyncReductionListenerManager(
@@ -191,6 +192,8 @@ class AsyncReductionListenerManager(
     program: TokenizedProgram,
     edit: AbstractSparTreeEdit<*>,
     outputCreator: (TokenizedProgram) -> ImmutableList<FileNameContentPair<String>>,
+    workingDirectory: Path? = null,
+    programSizeBefore: Int = -1,
   ) {
     val event =
       TestScriptExecutionEvent(
@@ -199,6 +202,8 @@ class AsyncReductionListenerManager(
         program,
         edit,
         outputCreator,
+        workingDirectory,
+        programSizeBefore,
       )
     submitEvent { listener ->
       listener.onTestScriptExecution(event)
@@ -210,6 +215,8 @@ class AsyncReductionListenerManager(
     edit: AbstractSparTreeEdit<*>,
     millisToCancelTheTask: Int,
     outputCreator: (TokenizedProgram) -> ImmutableList<FileNameContentPair<String>>,
+    workingDirectory: Path? = null,
+    programSizeBefore: Int = -1,
   ) {
     val event =
       AbstractTestScriptExecutionEvent.TestScriptExecutionCanceledEvent(
@@ -218,6 +225,8 @@ class AsyncReductionListenerManager(
         program,
         edit,
         outputCreator,
+        workingDirectory,
+        programSizeBefore,
       )
     submitEvent { listener ->
       listener.onTestScriptExecutionCancelled(event)

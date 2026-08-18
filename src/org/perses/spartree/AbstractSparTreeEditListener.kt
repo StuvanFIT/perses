@@ -22,6 +22,12 @@ abstract class AbstractSparTreeEditListener {
     edit: AbstractSparTreeEdit<*>,
   ) {
     val program = edit.program
+
+    /**
+     * Identifies the edit that was applied. Only the id is retained, not the edit itself, because
+     * an edit holds a reference to the whole spar-tree.
+     */
+    val editId = edit.id
   }
 
   abstract fun onAfterSparTreeEditApplied(event: SparTreeEditEvent)

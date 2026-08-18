@@ -126,7 +126,7 @@ abstract class AbstractStateBasedConcurrentReducer<
         return@forEach
       }
       val testResult = future.getWithTimeoutWarnings()
-      notifyListenerOnTestScriptExecution(testResult, future.payload)
+      notifyListenerOnTestScriptExecution(testResult, future)
       if (testResult.isInteresting) {
         bestFound = true
       } else {
@@ -160,14 +160,18 @@ abstract class AbstractStateBasedConcurrentReducer<
 
   private fun notifyListenerOnTestScriptExecution(
     testResult: PropertyTestResult,
-    statePayload: ConcurrentStateEditTestPayload<ConcurrentState>?,
+    future: TestScriptExecResult<ConcurrentStateEditTestPayload<ConcurrentState>>,
   ) {
-    statePayload?.let {
+    future.payload?.let {
       reducerContext.listenerManager.onTestScriptExecution(
         testResult,
         it.program.program,
         it.edit,
         outputCreator = ::computeFileContentListForProgram,
+        workingDirectory = future.workingDirectory.folder,
+        // Safe to read here: this runs on the reducer thread, which is the only thread that
+        // applies edits to the tree.
+        programSizeBefore = it.edit.tree.tokenCount,
       )
     }
   }

@@ -18,6 +18,7 @@ package org.perses
 
 import com.google.common.collect.ImmutableList
 import org.perses.listener.LoggingListener
+import org.perses.listener.NdjsonTraceListener
 import org.perses.listener.ProgressMonitorForNodeReducer
 import org.perses.listener.StatisticsListener
 import org.perses.listener.TestScriptExecutionListener
@@ -51,6 +52,16 @@ object PersesListenerManagerCreator {
         )
       builder.add(
         ProgressMonitorForNodeReducer(stream),
+      )
+    }
+    cmd.profilingFlags.traceNdjsonFile?.let {
+      builder.add(
+        NdjsonTraceListener(
+          fileStreamPool.rentStream(
+            path = it,
+            description = NdjsonTraceListener::class.toString(),
+          ),
+        ),
       )
     }
     cmd.profilingFlags.statDumpFile

@@ -24,7 +24,9 @@ kt_jvm_library(
         "//src/org/perses/listminimizer",
         "//src/org/perses/reduction:abstract_reducer",
         "//src/org/perses/reduction:test_script",
+        "//src/org/perses/reduction:test_script_executor_service",
         "//src/org/perses/reduction:tree_edit_with_its_program",
+        "//src/org/perses/reduction/io:reduction_folder",
         "//src/org/perses/spartree",
     ],
 )

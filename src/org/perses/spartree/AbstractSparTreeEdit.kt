@@ -25,7 +25,11 @@ sealed class AbstractSparTreeEdit<T : AbstractTreeEditAction>(
   val actionSet: AbstractActionSet<T>,
   val tree: SparTree,
 ) : Comparable<AbstractSparTreeEdit<*>> {
-  private val id: Int = idGenerator.getAndIncrement()
+  /**
+   * A process-wide unique identity for this edit, assigned at construction. It is immutable, so it
+   * is safe to read from any thread, e.g., from a reduction listener running asynchronously.
+   */
+  val id: Int = idGenerator.getAndIncrement()
   private val treeSnapshotVersion = tree.version
 
   val program by lazy {

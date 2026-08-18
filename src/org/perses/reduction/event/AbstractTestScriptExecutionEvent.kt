@@ -21,12 +21,33 @@ import org.perses.program.TokenizedProgram
 import org.perses.reduction.PropertyTestResult
 import org.perses.spartree.AbstractSparTreeEdit
 import org.perses.util.FileNameContentPair
+import java.nio.file.Path
 
 sealed class AbstractTestScriptExecutionEvent(
   currentTimeMillis: Long,
   val program: TokenizedProgram,
   val edit: AbstractSparTreeEdit<*>,
   outputCreator: (TokenizedProgram) -> ImmutableList<FileNameContentPair<String>>,
+  /**
+   * The per-candidate working directory that the property test script is executed in, i.e., the
+   * script's current working directory. External tooling can use it to join a record emitted by a
+   * listener with a line logged by the test script itself.
+   *
+   * This is null when the notification site cannot supply it. In particular, it is always null for
+   * [TestResultCacheHitEvent]: the query cache is consulted on a different thread from the one that
+   * creates the working directory, and on a cache hit no script is executed anyway, so there is
+   * nothing to join with.
+   */
+  val workingDirectory: Path? = null,
+  /**
+   * The token count of the program this candidate was derived from, or [UNKNOWN_PROGRAM_SIZE] when
+   * the notification site cannot supply it.
+   *
+   * This is captured when the event is created, on the reducer thread, because the spar-tree it is
+   * read from is mutable and cannot be read safely once the event has been handed to the
+   * asynchronous listener dispatcher.
+   */
+  val programSizeBefore: Int = -1,
 ) : AbstractReductionEvent(currentTimeMillis) {
   val textualProgram =
     LazyProgramOutputer(
@@ -40,7 +61,16 @@ sealed class AbstractTestScriptExecutionEvent(
     program: TokenizedProgram,
     edit: AbstractSparTreeEdit<*>,
     outputCreator: (TokenizedProgram) -> ImmutableList<FileNameContentPair<String>>,
-  ) : AbstractTestScriptExecutionEvent(currentTimeMillis, program, edit, outputCreator)
+    workingDirectory: Path? = null,
+    programSizeBefore: Int = -1,
+  ) : AbstractTestScriptExecutionEvent(
+      currentTimeMillis,
+      program,
+      edit,
+      outputCreator,
+      workingDirectory,
+      programSizeBefore,
+    )
 
   class TestResultCacheHitEvent(
     currentTimeMillis: Long,
@@ -55,5 +85,19 @@ sealed class AbstractTestScriptExecutionEvent(
     program: TokenizedProgram,
     edit: AbstractSparTreeEdit<*>,
     outputCreator: (TokenizedProgram) -> ImmutableList<FileNameContentPair<String>>,
-  ) : AbstractTestScriptExecutionEvent(currentTimeMillis, program, edit, outputCreator)
+    workingDirectory: Path? = null,
+    programSizeBefore: Int = -1,
+  ) : AbstractTestScriptExecutionEvent(
+      currentTimeMillis,
+      program,
+      edit,
+      outputCreator,
+      workingDirectory,
+      programSizeBefore,
+    )
+
+  companion object {
+    /** The value of [programSizeBefore] when the notification site cannot supply it. */
+    const val UNKNOWN_PROGRAM_SIZE = -1
+  }
 }

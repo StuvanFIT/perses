@@ -189,6 +189,10 @@ abstract class AbstractTokenReducer protected constructor(
             payload.edit,
             duration,
             outputCreator = ::computeFileContentListForProgram,
+            workingDirectory = future.workingDirectory.folder,
+            // Safe to read here: this runs on the reducer thread, which is the only thread that
+            // applies edits to the tree.
+            programSizeBefore = payload.edit.tree.tokenCount,
           )
         }
       }
@@ -212,6 +216,10 @@ abstract class AbstractTokenReducer protected constructor(
         payload.program.program,
         payload.edit,
         outputCreator = ::computeFileContentListForProgram,
+        workingDirectory = future.workingDirectory.folder,
+        // Safe to read here: this runs on the reducer thread, which is the only thread that
+        // applies edits to the tree.
+        programSizeBefore = payload.edit.tree.tokenCount,
       )
       if (testResult.isInteresting) {
         return TreeEditWithItsResult(edit = payload.edit, testResult = testResult)

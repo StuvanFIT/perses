@@ -178,6 +178,7 @@ abstract class AbstractLLMBasedReducer(
               currentTimeMillis = System.currentTimeMillis(),
               programSizeBefore = bestProgram.tokenCount,
               programSizeAfter = bestCandidateEdit.program.tokenCount,
+              editId = bestCandidateEdit.id,
             ),
           )
           bestEdit = bestCandidateEdit

@@ -14,6 +14,7 @@ kt_jvm_library(
     name = "listeners",
     srcs = [
         "LoggingListener.kt",
+        "NdjsonTraceListener.kt",
         "ProgressMonitorForNodeReducer.kt",
         "StatisticsListener.kt",
         "TestScriptExecutionListener.kt",
@@ -21,6 +22,7 @@ kt_jvm_library(
     deps = [
         "//:flogger",
         "//:guava",
+        "//antlropt/src/org/perses/antlr:enum_rule_type",
         "//src/org/perses/program",
         "//src/org/perses/program/printer",
         "//src/org/perses/reduction:abstract_reducer",

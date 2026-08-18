@@ -78,6 +78,16 @@ class ProfilingFlagGroup : AbstractCommandLineFlagGroup(groupName = "Profiling")
   )
   var profileListMinimizer: Path? = null
 
+  @Parameter(
+    names = ["--trace-ndjson-file"],
+    description =
+      "The file to save one NDJSON record per property test candidate. Each record carries the " +
+        "working directory of the test script invocation, so the records can be joined with a " +
+        "log written by the test script itself.",
+    order = 60,
+  )
+  var traceNdjsonFile: Path? = null
+
   override fun validate() {
     val flags =
       listOf(
