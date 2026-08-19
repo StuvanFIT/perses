@@ -1,0 +1,5500 @@
+{
+  "schemaVersion": "1.1.0",
+  "domain": "program-reduction",
+  "meta": {
+    "tool": "perses",
+    "toolVersion": null,
+    "language": "c",
+    "sourceFile": "t.c",
+    "testScript": "my_test.sh",
+    "generatedAt": "2026-08-19T12:36:12+00:00",
+    "reducerPlan": [
+      "node_priority-dfs",
+      "token_canonicalizer",
+      "node_priority-dfs",
+      "token_canonicalizer",
+      "FineGritLatraReducer"
+    ]
+  },
+  "summary": {
+    "originalTokens": 75,
+    "finalTokens": 17,
+    "reductionRatio": 0.773333,
+    "totalCandidates": 111,
+    "acceptedSteps": 12,
+    "rejectedCandidates": 79,
+    "queryCacheHits": 18,
+    "wallTimeMs": 23895,
+    "testTimeMs": 23134,
+    "instrumentationOverheadMs": 1264,
+    "scriptExecutions": 91,
+    "engineScriptExecutions": 94,
+    "globalCacheHits": 0,
+    "reducerPasses": 5,
+    "wrapperRecords": 93,
+    "joinedRecords": 92,
+    "unmatchedWrapperLines": 1
+  },
+  "originalProgramRef": "p_7dec01b4",
+  "programs": {
+    "p_7dec01b4": {
+      "text": "#include <stdio.h>\n\nint unused_helper(int x) {\n  int t = x * 2;\n  return t + 1;\n}\n\nint another_unused(void) {\n  int a = 1;\n  int b = 2;\n  return a + b;\n}\n\nint main(void) {\n  int keep_me = 42;\n  int noise_one = 7;\n  int noise_two = 13;\n  printf(\"%d\\n\", keep_me);\n  return 0;\n}\n",
+      "lines": 20,
+      "chars": 276
+    },
+    "p_9ce2ef9c": {
+      "text": "#include <stdio.h>\nint\nunused_helper\n(\nint\nx\n)\n{\nint\nt\n=\nx\n*\n2\n;\nreturn\nt\n+\n1\n;\n}\nint\nmain\n(\nvoid\n)\n{\nint\nkeep_me\n=\n42\n;\nint\nnoise_one\n=\n7\n;\nint\nnoise_two\n=\n13\n;\nprintf\n(\n\"%d\\n\"\n,\nkeep_me\n)\n;\nreturn\n0\n;\n}\n",
+      "lines": 53,
+      "chars": 205
+    },
+    "p_9b4af50d": {
+      "text": "int\nmain\n(\nvoid\n)\n{\nint\nkeep_me\n=\n42\n;\nint\nnoise_one\n=\n7\n;\nint\nnoise_two\n=\n13\n;\nprintf\n(\n\"%d\\n\"\n,\nkeep_me\n)\n;\nreturn\n0\n;\n}\n",
+      "lines": 32,
+      "chars": 123
+    },
+    "p_38995cb9": {
+      "text": "int\nmain\n(\nvoid\n)\n{\nint\nkeep_me\n=\n42\n;\nint\nnoise_one\n=\n7\n;\nint\nnoise_two\n=\n13\n;\nprintf\n(\n\"%d\\n\"\n,\nkeep_me\n)\n;\n}\n",
+      "lines": 29,
+      "chars": 112
+    },
+    "p_72f0f14b": {
+      "text": "int\nmain\n(\nvoid\n)\n{\nint\nkeep_me\n=\n42\n;\nint\nnoise_one\n=\n7\n;\nprintf\n(\n\"%d\\n\"\n,\nkeep_me\n)\n;\n}\n",
+      "lines": 24,
+      "chars": 91
+    },
+    "p_56ea2768": {
+      "text": "int\nmain\n(\nvoid\n)\n{\nint\nkeep_me\n=\n42\n;\nprintf\n(\n\"%d\\n\"\n,\nkeep_me\n)\n;\n}\n",
+      "lines": 19,
+      "chars": 71
+    },
+    "p_2b0a943f": {
+      "text": "int\nmain\n(\n)\n{\nint\nkeep_me\n=\n42\n;\nprintf\n(\n\"%d\\n\"\n,\nkeep_me\n)\n;\n}\n",
+      "lines": 18,
+      "chars": 66
+    },
+    "p_e36e5e6c": {
+      "text": "main\n(\n)\n{\nint\nkeep_me\n=\n42\n;\nprintf\n(\n\"%d\\n\"\n,\nkeep_me\n)\n;\n}\n",
+      "lines": 17,
+      "chars": 62
+    },
+    "p_085943aa": {
+      "text": "main\n(\n)\n{\nint\na\n=\n42\n;\nprintf\n(\n\"%d\\n\"\n,\na\n)\n;\n}\n",
+      "lines": 17,
+      "chars": 50
+    },
+    "p_78e09601": {
+      "text": "main\n(\n)\n{\nint\na\n=\n42\n;\nprintf\n(\n\"%d\"\n,\na\n)\n;\n}\n",
+      "lines": 17,
+      "chars": 48
+    },
+    "p_c53e981e": {
+      "text": "main\n(\n)\n{\nint\nb\n=\n42\n;\nprintf\n(\n\"%d\"\n,\nb\n)\n;\n}\n",
+      "lines": 17,
+      "chars": 48
+    }
+  },
+  "steps": [
+    {
+      "index": 0,
+      "candidateIndex": 4,
+      "programRef": "p_9ce2ef9c",
+      "baseRef": "p_7dec01b4",
+      "tokensBefore": 75,
+      "tokensAfter": 53,
+      "tokensRemoved": 22,
+      "reductionRatio": 0.293333,
+      "cumulativeReductionRatio": 0.293333,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__translationUnit_3]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 253,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "testsRunSoFar": 5,
+      "elapsedMs": 305,
+      "diff": "--- before\n+++ after\n@@ -1,20 +1,53 @@\n #include <stdio.h>\n-\n-int unused_helper(int x) {\n-  int t = x * 2;\n-  return t + 1;\n+int\n+unused_helper\n+(\n+int\n+x\n+)\n+{\n+int\n+t\n+=\n+x\n+*\n+2\n+;\n+return\n+t\n++\n+1\n+;\n }\n-\n-int another_unused(void) {\n-  int a = 1;\n-  int b = 2;\n-  return a + b;\n+int\n+main\n+(\n+void\n+)\n+{\n+int\n+keep_me\n+=\n+42\n+;\n+int\n+noise_one\n+=\n+7\n+;\n+int\n+noise_two\n+=\n+13\n+;\n+printf\n+(\n+\"%d\\n\"\n+,\n+keep_me\n+)\n+;\n+return\n+0\n+;\n }\n-\n-int main(void) {\n-  int keep_me = 42;\n-  int noise_one = 7;\n-  int noise_two = 13;\n-  printf(\"%d\\n\", keep_me);\n-  return 0;\n-}\n"
+    },
+    {
+      "index": 1,
+      "candidateIndex": 5,
+      "programRef": "p_9b4af50d",
+      "baseRef": "p_9ce2ef9c",
+      "tokensBefore": 53,
+      "tokensAfter": 32,
+      "tokensRemoved": 21,
+      "reductionRatio": 0.396226,
+      "cumulativeReductionRatio": 0.573333,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__translationUnit_3]dd@2",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 400,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 524,
+          "ruleName": "IncludeDirective",
+          "ruleType": null,
+          "replacingNodeId": null
+        }
+      ],
+      "testsRunSoFar": 6,
+      "elapsedMs": 305,
+      "diff": "--- before\n+++ after\n@@ -1,24 +1,3 @@\n-#include <stdio.h>\n-int\n-unused_helper\n-(\n-int\n-x\n-)\n-{\n-int\n-t\n-=\n-x\n-*\n-2\n-;\n-return\n-t\n-+\n-1\n-;\n-}\n int\n main\n (\n"
+    },
+    {
+      "index": 2,
+      "candidateIndex": 14,
+      "programRef": "p_38995cb9",
+      "baseRef": "p_9b4af50d",
+      "tokensBefore": 32,
+      "tokensAfter": 29,
+      "tokensRemoved": 3,
+      "reductionRatio": 0.09375,
+      "cumulativeReductionRatio": 0.613333,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__blockItemList_3]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 23,
+          "ruleName": "jumpStatement",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "testsRunSoFar": 14,
+      "elapsedMs": 351,
+      "diff": "--- before\n+++ after\n@@ -26,7 +26,4 @@\n keep_me\n )\n ;\n-return\n-0\n-;\n }\n"
+    },
+    {
+      "index": 3,
+      "candidateIndex": 17,
+      "programRef": "p_72f0f14b",
+      "baseRef": "p_38995cb9",
+      "tokensBefore": 29,
+      "tokensAfter": 24,
+      "tokensRemoved": 5,
+      "reductionRatio": 0.172414,
+      "cumulativeReductionRatio": 0.68,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__blockItemList_3]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 120,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "testsRunSoFar": 16,
+      "elapsedMs": 345,
+      "diff": "--- before\n+++ after\n@@ -14,11 +14,6 @@\n =\n 7\n ;\n-int\n-noise_two\n-=\n-13\n-;\n printf\n (\n \"%d\\n\"\n"
+    },
+    {
+      "index": 4,
+      "candidateIndex": 19,
+      "programRef": "p_56ea2768",
+      "baseRef": "p_72f0f14b",
+      "tokensBefore": 24,
+      "tokensAfter": 19,
+      "tokensRemoved": 5,
+      "reductionRatio": 0.208333,
+      "cumulativeReductionRatio": 0.746667,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__blockItemList_3]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 157,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "testsRunSoFar": 17,
+      "elapsedMs": 705,
+      "diff": "--- before\n+++ after\n@@ -9,11 +9,6 @@\n =\n 42\n ;\n-int\n-noise_one\n-=\n-7\n-;\n printf\n (\n \"%d\\n\"\n"
+    },
+    {
+      "index": 5,
+      "candidateIndex": 38,
+      "programRef": "p_2b0a943f",
+      "baseRef": "p_56ea2768",
+      "tokensBefore": 19,
+      "tokensAfter": 18,
+      "tokensRemoved": 1,
+      "reductionRatio": 0.052632,
+      "cumulativeReductionRatio": 0.76,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "[kleene_plus:declarationSpecifiers]can be epsilon",
+        "type": "DELETE"
+      },
+      "targets": [
+        {
+          "nodeId": 241,
+          "ruleName": "declarationSpecifiers",
+          "ruleType": "KLEENE_PLUS",
+          "replacingNodeId": null
+        }
+      ],
+      "testsRunSoFar": 29,
+      "elapsedMs": 262,
+      "diff": "--- before\n+++ after\n@@ -1,7 +1,6 @@\n int\n main\n (\n-void\n )\n {\n int\n"
+    },
+    {
+      "index": 6,
+      "candidateIndex": 39,
+      "programRef": "p_e36e5e6c",
+      "baseRef": "p_2b0a943f",
+      "tokensBefore": 18,
+      "tokensAfter": 17,
+      "tokensRemoved": 1,
+      "reductionRatio": 0.055556,
+      "cumulativeReductionRatio": 0.773333,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:optional__functionDefinition_2]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 248,
+          "ruleName": "declarationSpecifiers",
+          "ruleType": "KLEENE_PLUS",
+          "replacingNodeId": null
+        }
+      ],
+      "testsRunSoFar": 30,
+      "elapsedMs": 323,
+      "diff": "--- before\n+++ after\n@@ -1,4 +1,3 @@\n-int\n main\n (\n )\n"
+    },
+    {
+      "index": 7,
+      "candidateIndex": 42,
+      "programRef": "p_085943aa",
+      "baseRef": "p_e36e5e6c",
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "tokensRemoved": 0,
+      "reductionRatio": 0.0,
+      "cumulativeReductionRatio": 0.773333,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 2 lexer nodes with new lexeme 'a'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 99,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 530
+        },
+        {
+          "nodeId": 225,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 529
+        }
+      ],
+      "testsRunSoFar": 33,
+      "elapsedMs": 360,
+      "diff": "--- before\n+++ after\n@@ -3,7 +3,7 @@\n )\n {\n int\n-keep_me\n+a\n =\n 42\n ;\n@@ -11,7 +11,7 @@\n (\n \"%d\\n\"\n ,\n-keep_me\n+a\n )\n ;\n }\n"
+    },
+    {
+      "index": 8,
+      "candidateIndex": 54,
+      "programRef": "p_78e09601",
+      "baseRef": "p_085943aa",
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "tokensRemoved": 0,
+      "reductionRatio": 0.0,
+      "cumulativeReductionRatio": 0.773333,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"%d\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 117,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 555
+        }
+      ],
+      "testsRunSoFar": 45,
+      "elapsedMs": 212,
+      "diff": "--- before\n+++ after\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\\n\"\n+\"%d\"\n ,\n a\n )\n"
+    },
+    {
+      "index": 9,
+      "candidateIndex": 65,
+      "programRef": "p_c53e981e",
+      "baseRef": "p_78e09601",
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "tokensRemoved": 0,
+      "reductionRatio": 0.0,
+      "cumulativeReductionRatio": 0.773333,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 2 lexer nodes with new lexeme 'b'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 529,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 578
+        },
+        {
+          "nodeId": 530,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 579
+        }
+      ],
+      "testsRunSoFar": 54,
+      "elapsedMs": 270,
+      "diff": "--- before\n+++ after\n@@ -3,7 +3,7 @@\n )\n {\n int\n-a\n+b\n =\n 42\n ;\n@@ -11,7 +11,7 @@\n (\n \"%d\"\n ,\n-a\n+b\n )\n ;\n }\n"
+    },
+    {
+      "index": 10,
+      "candidateIndex": 90,
+      "programRef": "p_78e09601",
+      "baseRef": "p_c53e981e",
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "tokensRemoved": 0,
+      "reductionRatio": 0.0,
+      "cumulativeReductionRatio": 0.773333,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 2 lexer nodes with new lexeme 'a'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 644,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 715
+        },
+        {
+          "nodeId": 696,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 714
+        }
+      ],
+      "testsRunSoFar": 72,
+      "elapsedMs": 278,
+      "diff": "--- before\n+++ after\n@@ -3,7 +3,7 @@\n )\n {\n int\n-b\n+a\n =\n 42\n ;\n@@ -11,7 +11,7 @@\n (\n \"%d\"\n ,\n-b\n+a\n )\n ;\n }\n"
+    },
+    {
+      "index": 11,
+      "candidateIndex": 109,
+      "programRef": "p_c53e981e",
+      "baseRef": "p_78e09601",
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "tokensRemoved": 0,
+      "reductionRatio": 0.0,
+      "cumulativeReductionRatio": 0.773333,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 2 lexer nodes with new lexeme 'b'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 714,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 753
+        },
+        {
+          "nodeId": 715,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 754
+        }
+      ],
+      "testsRunSoFar": 90,
+      "elapsedMs": 316,
+      "diff": "--- before\n+++ after\n@@ -3,7 +3,7 @@\n )\n {\n int\n-a\n+b\n =\n 42\n ;\n@@ -11,7 +11,7 @@\n (\n \"%d\"\n ,\n-a\n+b\n )\n ;\n }\n"
+    }
+  ],
+  "candidates": [
+    {
+      "index": 0,
+      "seq": 0,
+      "workDirId": "000001",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 0,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "[kleene_plus:kleene_plus__translationUnit_3]remove whole except first",
+        "type": "DELETE"
+      },
+      "targets": [
+        {
+          "nodeId": 7,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 253,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 400,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 75,
+      "tokensAfter": 1,
+      "programRef": null,
+      "baseRef": "p_7dec01b4",
+      "patch": "--- best\n+++ candidate\n@@ -1,20 +1 @@\n #include <stdio.h>\n-\n-int unused_helper(int x) {\n-  int t = x * 2;\n-  return t + 1;\n-}\n-\n-int another_unused(void) {\n-  int a = 1;\n-  int b = 2;\n-  return a + b;\n-}\n-\n-int main(void) {\n-  int keep_me = 42;\n-  int noise_one = 7;\n-  int noise_two = 13;\n-  printf(\"%d\\n\", keep_me);\n-  return 0;\n-}\n",
+      "metrics": {
+        "testDurationMs": 305,
+        "engineReportedMs": 323,
+        "wrapperOverheadMs": 10,
+        "cumulativeTests": 1,
+        "chars": 19,
+        "lines": 1
+      },
+      "provenance": {
+        "workDirId": "000001",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 1,
+      "seq": 1,
+      "workDirId": "000002",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 1,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__translationUnit_3]dd@4",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 7,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 253,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 400,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 524,
+          "ruleName": "IncludeDirective",
+          "ruleType": null,
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 75,
+      "tokensAfter": 0,
+      "programRef": null,
+      "baseRef": "p_7dec01b4",
+      "patch": "--- best\n+++ candidate\n@@ -1,20 +0,0 @@\n-#include <stdio.h>\n-\n-int unused_helper(int x) {\n-  int t = x * 2;\n-  return t + 1;\n-}\n-\n-int another_unused(void) {\n-  int a = 1;\n-  int b = 2;\n-  return a + b;\n-}\n-\n-int main(void) {\n-  int keep_me = 42;\n-  int noise_one = 7;\n-  int noise_two = 13;\n-  printf(\"%d\\n\", keep_me);\n-  return 0;\n-}\n",
+      "metrics": {
+        "testDurationMs": 289,
+        "engineReportedMs": 310,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 2,
+        "chars": 0,
+        "lines": 0
+      },
+      "provenance": {
+        "workDirId": "000002",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 2,
+      "seq": 2,
+      "workDirId": "000003",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 2,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__translationUnit_3]dd@2",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 7,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 253,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 75,
+      "tokensAfter": 21,
+      "programRef": null,
+      "baseRef": "p_7dec01b4",
+      "patch": "--- best\n+++ candidate\n@@ -1,20 +1,21 @@\n #include <stdio.h>\n-\n-int unused_helper(int x) {\n-  int t = x * 2;\n-  return t + 1;\n+int\n+unused_helper\n+(\n+int\n+x\n+)\n+{\n+int\n+t\n+=\n+x\n+*\n+2\n+;\n+return\n+t\n++\n+1\n+;\n }\n-\n-int another_unused(void) {\n-  int a = 1;\n-  int b = 2;\n-  return a + b;\n-}\n-\n-int main(void) {\n-  int keep_me = 42;\n-  int noise_one = 7;\n-  int noise_two = 13;\n-  printf(\"%d\\n\", keep_me);\n-  return 0;\n-}\n",
+      "metrics": {
+        "testDurationMs": 308,
+        "engineReportedMs": 331,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 3,
+        "chars": 82,
+        "lines": 21
+      },
+      "provenance": {
+        "workDirId": "000003",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 3,
+      "seq": 3,
+      "workDirId": "000004",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 3,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__translationUnit_3]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 7,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 75,
+      "tokensAfter": 43,
+      "programRef": null,
+      "baseRef": "p_7dec01b4",
+      "patch": "--- best\n+++ candidate\n@@ -1,20 +1,43 @@\n #include <stdio.h>\n-\n-int unused_helper(int x) {\n-  int t = x * 2;\n-  return t + 1;\n+int\n+unused_helper\n+(\n+int\n+x\n+)\n+{\n+int\n+t\n+=\n+x\n+*\n+2\n+;\n+return\n+t\n++\n+1\n+;\n }\n-\n-int another_unused(void) {\n-  int a = 1;\n-  int b = 2;\n-  return a + b;\n+int\n+another_unused\n+(\n+void\n+)\n+{\n+int\n+a\n+=\n+1\n+;\n+int\n+b\n+=\n+2\n+;\n+return\n+a\n++\n+b\n+;\n }\n-\n-int main(void) {\n-  int keep_me = 42;\n-  int noise_one = 7;\n-  int noise_two = 13;\n-  printf(\"%d\\n\", keep_me);\n-  return 0;\n-}\n",
+      "metrics": {
+        "testDurationMs": 308,
+        "engineReportedMs": 332,
+        "wrapperOverheadMs": 14,
+        "cumulativeTests": 4,
+        "chars": 153,
+        "lines": 43
+      },
+      "provenance": {
+        "workDirId": "000004",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 4,
+      "seq": 4,
+      "workDirId": "000005",
+      "eventKind": "TEST_EXECUTION",
+      "status": "INTERESTING",
+      "becameBest": true,
+      "exitCode": 0,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 4,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__translationUnit_3]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 253,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 75,
+      "tokensAfter": 53,
+      "programRef": "p_9ce2ef9c",
+      "baseRef": "p_7dec01b4",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": 305,
+        "engineReportedMs": 324,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 5,
+        "chars": 205,
+        "lines": 53
+      },
+      "provenance": {
+        "workDirId": "000005",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 5,
+      "seq": 6,
+      "workDirId": "000006",
+      "eventKind": "TEST_EXECUTION",
+      "status": "INTERESTING",
+      "becameBest": true,
+      "exitCode": 0,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 5,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__translationUnit_3]dd@2",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 400,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 524,
+          "ruleName": "IncludeDirective",
+          "ruleType": null,
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 53,
+      "tokensAfter": 32,
+      "programRef": "p_9b4af50d",
+      "baseRef": "p_9ce2ef9c",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": 305,
+        "engineReportedMs": 324,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 6,
+        "chars": 123,
+        "lines": 32
+      },
+      "provenance": {
+        "workDirId": "000006",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 6,
+      "seq": 8,
+      "workDirId": "000007",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 9,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 7,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 197
+        }
+      ],
+      "tokensBefore": 32,
+      "tokensAfter": 1,
+      "programRef": null,
+      "baseRef": "p_9b4af50d",
+      "patch": "--- best\n+++ candidate\n@@ -1,32 +1 @@\n-int\n-main\n-(\n-void\n-)\n-{\n-int\n-keep_me\n-=\n-42\n ;\n-int\n-noise_one\n-=\n-7\n-;\n-int\n-noise_two\n-=\n-13\n-;\n-printf\n-(\n-\"%d\\n\"\n-,\n-keep_me\n-)\n-;\n-return\n-0\n-;\n-}\n",
+      "metrics": {
+        "testDurationMs": 219,
+        "engineReportedMs": 242,
+        "wrapperOverheadMs": 14,
+        "cumulativeTests": 7,
+        "chars": 2,
+        "lines": 1
+      },
+      "provenance": {
+        "workDirId": "000007",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 7,
+      "seq": 9,
+      "workDirId": "000012",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 6,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 7,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 194
+        }
+      ],
+      "tokensBefore": 32,
+      "tokensAfter": 5,
+      "programRef": null,
+      "baseRef": "p_9b4af50d",
+      "patch": "--- best\n+++ candidate\n@@ -1,32 +1,5 @@\n-int\n-main\n-(\n-void\n-)\n-{\n int\n keep_me\n =\n 42\n ;\n-int\n-noise_one\n-=\n-7\n-;\n-int\n-noise_two\n-=\n-13\n-;\n-printf\n-(\n-\"%d\\n\"\n-,\n-keep_me\n-)\n-;\n-return\n-0\n-;\n-}\n",
+      "metrics": {
+        "testDurationMs": 213,
+        "engineReportedMs": 233,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 8,
+        "chars": 19,
+        "lines": 5
+      },
+      "provenance": {
+        "workDirId": "000012",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 8,
+      "seq": 10,
+      "workDirId": "000013",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 7,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 7,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 157
+        }
+      ],
+      "tokensBefore": 32,
+      "tokensAfter": 5,
+      "programRef": null,
+      "baseRef": "p_9b4af50d",
+      "patch": "--- best\n+++ candidate\n@@ -1,32 +1,5 @@\n-int\n-main\n-(\n-void\n-)\n-{\n-int\n-keep_me\n-=\n-42\n-;\n int\n noise_one\n =\n 7\n ;\n-int\n-noise_two\n-=\n-13\n-;\n-printf\n-(\n-\"%d\\n\"\n-,\n-keep_me\n-)\n-;\n-return\n-0\n-;\n-}\n",
+      "metrics": {
+        "testDurationMs": 218,
+        "engineReportedMs": 241,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 9,
+        "chars": 20,
+        "lines": 5
+      },
+      "provenance": {
+        "workDirId": "000013",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 9,
+      "seq": 11,
+      "workDirId": "000014",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 8,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 7,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 120
+        }
+      ],
+      "tokensBefore": 32,
+      "tokensAfter": 5,
+      "programRef": null,
+      "baseRef": "p_9b4af50d",
+      "patch": "--- best\n+++ candidate\n@@ -1,32 +1,5 @@\n-int\n-main\n-(\n-void\n-)\n-{\n-int\n-keep_me\n-=\n-42\n-;\n-int\n-noise_one\n-=\n-7\n-;\n int\n noise_two\n =\n 13\n ;\n-printf\n-(\n-\"%d\\n\"\n-,\n-keep_me\n-)\n-;\n-return\n-0\n-;\n-}\n",
+      "metrics": {
+        "testDurationMs": 291,
+        "engineReportedMs": 312,
+        "wrapperOverheadMs": 13,
+        "cumulativeTests": 10,
+        "chars": 21,
+        "lines": 5
+      },
+      "provenance": {
+        "workDirId": "000014",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 10,
+      "seq": 12,
+      "workDirId": "000015",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 14,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:optional__compoundStatement_1]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 15,
+          "ruleName": "kleene_plus__blockItemList_3",
+          "ruleType": "KLEENE_PLUS",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 32,
+      "tokensAfter": 7,
+      "programRef": null,
+      "baseRef": "p_9b4af50d",
+      "patch": "--- best\n+++ candidate\n@@ -4,29 +4,4 @@\n void\n )\n {\n-int\n-keep_me\n-=\n-42\n-;\n-int\n-noise_one\n-=\n-7\n-;\n-int\n-noise_two\n-=\n-13\n-;\n-printf\n-(\n-\"%d\\n\"\n-,\n-keep_me\n-)\n-;\n-return\n-0\n-;\n }\n",
+      "metrics": {
+        "testDurationMs": 305,
+        "engineReportedMs": 327,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 11,
+        "chars": 22,
+        "lines": 7
+      },
+      "provenance": {
+        "workDirId": "000015",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 11,
+      "seq": 13,
+      "workDirId": "000016",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 15,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "[kleene_plus:kleene_plus__blockItemList_3]remove whole except first",
+        "type": "DELETE"
+      },
+      "targets": [
+        {
+          "nodeId": 23,
+          "ruleName": "jumpStatement",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 50,
+          "ruleName": "expressionStatement",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 120,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 157,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 32,
+      "tokensAfter": 12,
+      "programRef": null,
+      "baseRef": "p_9b4af50d",
+      "patch": "--- best\n+++ candidate\n@@ -9,24 +9,4 @@\n =\n 42\n ;\n-int\n-noise_one\n-=\n-7\n-;\n-int\n-noise_two\n-=\n-13\n-;\n-printf\n-(\n-\"%d\\n\"\n-,\n-keep_me\n-)\n-;\n-return\n-0\n-;\n }\n",
+      "metrics": {
+        "testDurationMs": 317,
+        "engineReportedMs": 338,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 12,
+        "chars": 41,
+        "lines": 12
+      },
+      "provenance": {
+        "workDirId": "000016",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 12,
+      "seq": 14,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 16,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__blockItemList_3]dd@5",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 23,
+          "ruleName": "jumpStatement",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 50,
+          "ruleName": "expressionStatement",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 120,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 157,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 194,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 7,
+      "programRef": null,
+      "baseRef": "p_9b4af50d",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 12,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 13,
+      "seq": 15,
+      "workDirId": "000018",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 17,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__blockItemList_3]dd@2",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 23,
+          "ruleName": "jumpStatement",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 50,
+          "ruleName": "expressionStatement",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 32,
+      "tokensAfter": 22,
+      "programRef": null,
+      "baseRef": "p_9b4af50d",
+      "patch": "--- best\n+++ candidate\n@@ -19,14 +19,4 @@\n =\n 13\n ;\n-printf\n-(\n-\"%d\\n\"\n-,\n-keep_me\n-)\n-;\n-return\n-0\n-;\n }\n",
+      "metrics": {
+        "testDurationMs": 302,
+        "engineReportedMs": 329,
+        "wrapperOverheadMs": 17,
+        "cumulativeTests": 13,
+        "chars": 82,
+        "lines": 22
+      },
+      "provenance": {
+        "workDirId": "000018",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 14,
+      "seq": 16,
+      "workDirId": "000019",
+      "eventKind": "TEST_EXECUTION",
+      "status": "INTERESTING",
+      "becameBest": true,
+      "exitCode": 0,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 18,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__blockItemList_3]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 23,
+          "ruleName": "jumpStatement",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 32,
+      "tokensAfter": 29,
+      "programRef": "p_38995cb9",
+      "baseRef": "p_9b4af50d",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": 351,
+        "engineReportedMs": 372,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 14,
+        "chars": 112,
+        "lines": 29
+      },
+      "provenance": {
+        "workDirId": "000019",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 15,
+      "seq": 18,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 19,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__blockItemList_3]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 50,
+          "ruleName": "expressionStatement",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 22,
+      "programRef": null,
+      "baseRef": "p_38995cb9",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 14,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 16,
+      "seq": 19,
+      "workDirId": "000021",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 20,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__blockItemList_3]dd@3",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 120,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 157,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 194,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 29,
+      "tokensAfter": 14,
+      "programRef": null,
+      "baseRef": "p_38995cb9",
+      "patch": "--- best\n+++ candidate\n@@ -4,21 +4,6 @@\n void\n )\n {\n-int\n-keep_me\n-=\n-42\n-;\n-int\n-noise_one\n-=\n-7\n-;\n-int\n-noise_two\n-=\n-13\n-;\n printf\n (\n \"%d\\n\"\n",
+      "metrics": {
+        "testDurationMs": 18,
+        "engineReportedMs": 41,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 15,
+        "chars": 52,
+        "lines": 14
+      },
+      "provenance": {
+        "workDirId": "000021",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 17,
+      "seq": 20,
+      "workDirId": "000022",
+      "eventKind": "TEST_EXECUTION",
+      "status": "INTERESTING",
+      "becameBest": true,
+      "exitCode": 0,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 21,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__blockItemList_3]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 120,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 29,
+      "tokensAfter": 24,
+      "programRef": "p_72f0f14b",
+      "baseRef": "p_38995cb9",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": 345,
+        "engineReportedMs": 368,
+        "wrapperOverheadMs": 14,
+        "cumulativeTests": 16,
+        "chars": 91,
+        "lines": 24
+      },
+      "provenance": {
+        "workDirId": "000022",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 18,
+      "seq": 22,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 22,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__blockItemList_3]dd@2",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 157,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 194,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 14,
+      "programRef": null,
+      "baseRef": "p_72f0f14b",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 16,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 19,
+      "seq": 23,
+      "workDirId": "000024",
+      "eventKind": "TEST_EXECUTION",
+      "status": "INTERESTING",
+      "becameBest": true,
+      "exitCode": 0,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 23,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__blockItemList_3]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 157,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 24,
+      "tokensAfter": 19,
+      "programRef": "p_56ea2768",
+      "baseRef": "p_72f0f14b",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": 705,
+        "engineReportedMs": 725,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 17,
+        "chars": 71,
+        "lines": 19
+      },
+      "provenance": {
+        "workDirId": "000024",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 20,
+      "seq": 25,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 24,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__blockItemList_3]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 194,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 14,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 17,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 21,
+      "seq": 26,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 25,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "[regular_node]can be epsilon",
+        "type": "DELETE"
+      },
+      "targets": [
+        {
+          "nodeId": 50,
+          "ruleName": "expressionStatement",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 12,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 17,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 22,
+      "seq": 27,
+      "workDirId": "000027",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 26,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 50,
+          "ruleName": "expressionStatement",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 52
+        }
+      ],
+      "tokensBefore": 19,
+      "tokensAfter": 13,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": "--- best\n+++ candidate\n@@ -9,11 +9,5 @@\n =\n 42\n ;\n-printf\n-(\n-\"%d\\n\"\n-,\n-keep_me\n-)\n ;\n }\n",
+      "metrics": {
+        "testDurationMs": 1431,
+        "engineReportedMs": 1463,
+        "wrapperOverheadMs": 21,
+        "cumulativeTests": 18,
+        "chars": 43,
+        "lines": 13
+      },
+      "provenance": {
+        "workDirId": "000027",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 23,
+      "seq": 28,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 27,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:optional__postfixExpression_1]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 69,
+          "ruleName": "postfixExpression",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 13,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 18,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 24,
+      "seq": 29,
+      "workDirId": "000029",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 28,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 69,
+          "ruleName": "postfixExpression",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 118
+        }
+      ],
+      "tokensBefore": 19,
+      "tokensAfter": 14,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": "--- best\n+++ candidate\n@@ -10,10 +10,5 @@\n 42\n ;\n printf\n-(\n-\"%d\\n\"\n-,\n-keep_me\n-)\n ;\n }\n",
+      "metrics": {
+        "testDurationMs": 21,
+        "engineReportedMs": 51,
+        "wrapperOverheadMs": 19,
+        "cumulativeTests": 19,
+        "chars": 50,
+        "lines": 14
+      },
+      "provenance": {
+        "workDirId": "000029",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 25,
+      "seq": 30,
+      "workDirId": "000030",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 30,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 69,
+          "ruleName": "postfixExpression",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 116
+        }
+      ],
+      "tokensBefore": 19,
+      "tokensAfter": 14,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": "--- best\n+++ candidate\n@@ -9,11 +9,6 @@\n =\n 42\n ;\n-printf\n-(\n \"%d\\n\"\n-,\n-keep_me\n-)\n ;\n }\n",
+      "metrics": {
+        "testDurationMs": 365,
+        "engineReportedMs": 398,
+        "wrapperOverheadMs": 25,
+        "cumulativeTests": 20,
+        "chars": 50,
+        "lines": 14
+      },
+      "provenance": {
+        "workDirId": "000030",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 26,
+      "seq": 31,
+      "workDirId": "000031",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 29,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 69,
+          "ruleName": "postfixExpression",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 77
+        }
+      ],
+      "tokensBefore": 19,
+      "tokensAfter": 16,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": "--- best\n+++ candidate\n@@ -9,11 +9,8 @@\n =\n 42\n ;\n-printf\n-(\n \"%d\\n\"\n ,\n keep_me\n-)\n ;\n }\n",
+      "metrics": {
+        "testDurationMs": 366,
+        "engineReportedMs": 404,
+        "wrapperOverheadMs": 32,
+        "cumulativeTests": 21,
+        "chars": 60,
+        "lines": 16
+      },
+      "provenance": {
+        "workDirId": "000031",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 27,
+      "seq": 32,
+      "workDirId": "000032",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 31,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 194,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 197
+        }
+      ],
+      "tokensBefore": 19,
+      "tokensAfter": 15,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": "--- best\n+++ candidate\n@@ -4,10 +4,6 @@\n void\n )\n {\n-int\n-keep_me\n-=\n-42\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 19,
+        "engineReportedMs": 46,
+        "wrapperOverheadMs": 17,
+        "cumulativeTests": 22,
+        "chars": 54,
+        "lines": 15
+      },
+      "provenance": {
+        "workDirId": "000032",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 28,
+      "seq": 33,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 32,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:kleene_star__postfixExpression_2]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 73,
+          "ruleName": "aux_rule__postfixExpression_11",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 14,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 22,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 29,
+      "seq": 34,
+      "workDirId": "000034",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 33,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 230,
+          "ruleName": "directDeclarator",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 247
+        }
+      ],
+      "tokensBefore": 19,
+      "tokensAfter": 16,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": "--- best\n+++ candidate\n@@ -1,8 +1,5 @@\n int\n main\n-(\n-void\n-)\n {\n int\n keep_me\n",
+      "metrics": {
+        "testDurationMs": 30,
+        "engineReportedMs": 61,
+        "wrapperOverheadMs": 21,
+        "cumulativeTests": 23,
+        "chars": 62,
+        "lines": 16
+      },
+      "provenance": {
+        "workDirId": "000034",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 30,
+      "seq": 35,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 34,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:kleene_star__directDeclarator_7]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 234,
+          "ruleName": "aux_rule__directDeclarator_15",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 16,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 23,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 31,
+      "seq": 36,
+      "workDirId": "000036",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 35,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:optional__declaration_2]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 199,
+          "ruleName": "initDeclarator",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 19,
+      "tokensAfter": 16,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": "--- best\n+++ candidate\n@@ -5,9 +5,6 @@\n )\n {\n int\n-keep_me\n-=\n-42\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 18,
+        "engineReportedMs": 64,
+        "wrapperOverheadMs": 22,
+        "cumulativeTests": 24,
+        "chars": 58,
+        "lines": 16
+      },
+      "provenance": {
+        "workDirId": "000036",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 32,
+      "seq": 37,
+      "workDirId": "000037",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 36,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 199,
+          "ruleName": "initDeclarator",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 225
+        }
+      ],
+      "tokensBefore": 19,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": "--- best\n+++ candidate\n@@ -6,8 +6,6 @@\n {\n int\n keep_me\n-=\n-42\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 274,
+        "engineReportedMs": 300,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 25,
+        "chars": 66,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000037",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 33,
+      "seq": 38,
+      "workDirId": "000038",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 37,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:optional__postfixExpression_1]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 77,
+          "ruleName": "expression",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 19,
+      "tokensAfter": 16,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": "--- best\n+++ candidate\n@@ -11,9 +11,6 @@\n ;\n printf\n (\n-\"%d\\n\"\n-,\n-keep_me\n )\n ;\n }\n",
+      "metrics": {
+        "testDurationMs": 16,
+        "engineReportedMs": 34,
+        "wrapperOverheadMs": 10,
+        "cumulativeTests": 26,
+        "chars": 54,
+        "lines": 16
+      },
+      "provenance": {
+        "workDirId": "000038",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 34,
+      "seq": 39,
+      "workDirId": "000039",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 38,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 77,
+          "ruleName": "expression",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 116
+        }
+      ],
+      "tokensBefore": 19,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": "--- best\n+++ candidate\n@@ -12,8 +12,6 @@\n printf\n (\n \"%d\\n\"\n-,\n-keep_me\n )\n ;\n }\n",
+      "metrics": {
+        "testDurationMs": 202,
+        "engineReportedMs": 224,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 27,
+        "chars": 61,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000039",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 35,
+      "seq": 40,
+      "workDirId": "000041",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 40,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 77,
+          "ruleName": "expression",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 99
+        }
+      ],
+      "tokensBefore": 19,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": "--- best\n+++ candidate\n@@ -11,8 +11,6 @@\n ;\n printf\n (\n-\"%d\\n\"\n-,\n keep_me\n )\n ;\n",
+      "metrics": {
+        "testDurationMs": 263,
+        "engineReportedMs": 283,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 28,
+        "chars": 62,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000041",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 36,
+      "seq": 41,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 41,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:optional__initDeclarator_2]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 202,
+          "ruleName": "aux_rule__initDeclarator_1",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 28,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 37,
+      "seq": 42,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 42,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:kleene_star__expression_1]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 80,
+          "ruleName": "aux_rule__expression_2",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_56ea2768",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 28,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 38,
+      "seq": 43,
+      "workDirId": "000044",
+      "eventKind": "TEST_EXECUTION",
+      "status": "INTERESTING",
+      "becameBest": true,
+      "exitCode": 0,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 43,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "[kleene_plus:declarationSpecifiers]can be epsilon",
+        "type": "DELETE"
+      },
+      "targets": [
+        {
+          "nodeId": 241,
+          "ruleName": "declarationSpecifiers",
+          "ruleType": "KLEENE_PLUS",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 19,
+      "tokensAfter": 18,
+      "programRef": "p_2b0a943f",
+      "baseRef": "p_56ea2768",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": 262,
+        "engineReportedMs": 289,
+        "wrapperOverheadMs": 13,
+        "cumulativeTests": 29,
+        "chars": 66,
+        "lines": 18
+      },
+      "provenance": {
+        "workDirId": "000044",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 39,
+      "seq": 45,
+      "workDirId": "000045",
+      "eventKind": "TEST_EXECUTION",
+      "status": "INTERESTING",
+      "becameBest": true,
+      "exitCode": 0,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 1,
+      "editId": 44,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:optional__functionDefinition_2]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 248,
+          "ruleName": "declarationSpecifiers",
+          "ruleType": "KLEENE_PLUS",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 18,
+      "tokensAfter": 17,
+      "programRef": "p_e36e5e6c",
+      "baseRef": "p_2b0a943f",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": 323,
+        "engineReportedMs": 346,
+        "wrapperOverheadMs": 14,
+        "cumulativeTests": 30,
+        "chars": 62,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000045",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 40,
+      "seq": 47,
+      "workDirId": "000046",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 45,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme 'a'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 247,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 526
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_e36e5e6c",
+      "patch": "--- best\n+++ candidate\n@@ -1,4 +1,4 @@\n-main\n+a\n (\n )\n {\n",
+      "metrics": {
+        "testDurationMs": 290,
+        "engineReportedMs": 310,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 31,
+        "chars": 59,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000046",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 41,
+      "seq": 48,
+      "workDirId": "000048",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 47,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme 'a'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 225,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 528
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_e36e5e6c",
+      "patch": "--- best\n+++ candidate\n@@ -3,7 +3,7 @@\n )\n {\n int\n-keep_me\n+a\n =\n 42\n ;\n",
+      "metrics": {
+        "testDurationMs": 16,
+        "engineReportedMs": 37,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 32,
+        "chars": 56,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000048",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 42,
+      "seq": 49,
+      "workDirId": "000049",
+      "eventKind": "TEST_EXECUTION",
+      "status": "INTERESTING",
+      "becameBest": true,
+      "exitCode": 0,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 48,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 2 lexer nodes with new lexeme 'a'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 99,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 530
+        },
+        {
+          "nodeId": 225,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 529
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": "p_085943aa",
+      "baseRef": "p_e36e5e6c",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": 360,
+        "engineReportedMs": 382,
+        "wrapperOverheadMs": 13,
+        "cumulativeTests": 33,
+        "chars": 50,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000049",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 43,
+      "seq": 51,
+      "workDirId": "000050",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 49,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '0'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 222,
+          "ruleName": "Constant",
+          "ruleType": null,
+          "replacingNodeId": 531
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_085943aa",
+      "patch": "--- best\n+++ candidate\n@@ -5,7 +5,7 @@\n int\n a\n =\n-42\n+0\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 270,
+        "engineReportedMs": 289,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 34,
+        "chars": 49,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000050",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 44,
+      "seq": 52,
+      "workDirId": "000052",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 51,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '1'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 222,
+          "ruleName": "Constant",
+          "ruleType": null,
+          "replacingNodeId": 533
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_085943aa",
+      "patch": "--- best\n+++ candidate\n@@ -5,7 +5,7 @@\n int\n a\n =\n-42\n+1\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 270,
+        "engineReportedMs": 290,
+        "wrapperOverheadMs": 13,
+        "cumulativeTests": 35,
+        "chars": 49,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000052",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 45,
+      "seq": 53,
+      "workDirId": "000054",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 53,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '4'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 222,
+          "ruleName": "Constant",
+          "ruleType": null,
+          "replacingNodeId": 535
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_085943aa",
+      "patch": "--- best\n+++ candidate\n@@ -5,7 +5,7 @@\n int\n a\n =\n-42\n+4\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 328,
+        "engineReportedMs": 364,
+        "wrapperOverheadMs": 27,
+        "cumulativeTests": 36,
+        "chars": 49,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000054",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 46,
+      "seq": 54,
+      "workDirId": "000058",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 57,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '12'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 222,
+          "ruleName": "Constant",
+          "ruleType": null,
+          "replacingNodeId": 539
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_085943aa",
+      "patch": "--- best\n+++ candidate\n@@ -5,7 +5,7 @@\n int\n a\n =\n-42\n+12\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 356,
+        "engineReportedMs": 381,
+        "wrapperOverheadMs": 16,
+        "cumulativeTests": 37,
+        "chars": 50,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000058",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 47,
+      "seq": 55,
+      "workDirId": "000060",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 59,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '22'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 222,
+          "ruleName": "Constant",
+          "ruleType": null,
+          "replacingNodeId": 541
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_085943aa",
+      "patch": "--- best\n+++ candidate\n@@ -5,7 +5,7 @@\n int\n a\n =\n-42\n+22\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 341,
+        "engineReportedMs": 373,
+        "wrapperOverheadMs": 23,
+        "cumulativeTests": 38,
+        "chars": 50,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000060",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 48,
+      "seq": 56,
+      "workDirId": "000062",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 61,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '40'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 222,
+          "ruleName": "Constant",
+          "ruleType": null,
+          "replacingNodeId": 543
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_085943aa",
+      "patch": "--- best\n+++ candidate\n@@ -5,7 +5,7 @@\n int\n a\n =\n-42\n+40\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 334,
+        "engineReportedMs": 362,
+        "wrapperOverheadMs": 19,
+        "cumulativeTests": 39,
+        "chars": 50,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000062",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 49,
+      "seq": 57,
+      "workDirId": "000064",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 63,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '41'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 222,
+          "ruleName": "Constant",
+          "ruleType": null,
+          "replacingNodeId": 545
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_085943aa",
+      "patch": "--- best\n+++ candidate\n@@ -5,7 +5,7 @@\n int\n a\n =\n-42\n+41\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 320,
+        "engineReportedMs": 369,
+        "wrapperOverheadMs": 40,
+        "cumulativeTests": 40,
+        "chars": 50,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000064",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 50,
+      "seq": 58,
+      "workDirId": "000066",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 65,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme 'a'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 118,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 547
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_085943aa",
+      "patch": "--- best\n+++ candidate\n@@ -7,7 +7,7 @@\n =\n 42\n ;\n-printf\n+a\n (\n \"%d\\n\"\n ,\n",
+      "metrics": {
+        "testDurationMs": 17,
+        "engineReportedMs": 39,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 41,
+        "chars": 45,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000066",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 51,
+      "seq": 59,
+      "workDirId": "000068",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 67,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme 'b'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 118,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 549
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_085943aa",
+      "patch": "--- best\n+++ candidate\n@@ -7,7 +7,7 @@\n =\n 42\n ;\n-printf\n+b\n (\n \"%d\\n\"\n ,\n",
+      "metrics": {
+        "testDurationMs": 236,
+        "engineReportedMs": 255,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 42,
+        "chars": 45,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000068",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 52,
+      "seq": 60,
+      "workDirId": "000070",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 69,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 117,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 551
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_085943aa",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\\n\"\n+\"\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 232,
+        "engineReportedMs": 248,
+        "wrapperOverheadMs": 9,
+        "cumulativeTests": 43,
+        "chars": 46,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000070",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 53,
+      "seq": 61,
+      "workDirId": "000072",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 71,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"\\n\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 117,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 553
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_085943aa",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\\n\"\n+\"\\n\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 208,
+        "engineReportedMs": 230,
+        "wrapperOverheadMs": 15,
+        "cumulativeTests": 44,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000072",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 54,
+      "seq": 62,
+      "workDirId": "000074",
+      "eventKind": "TEST_EXECUTION",
+      "status": "INTERESTING",
+      "becameBest": true,
+      "exitCode": 0,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 73,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"%d\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 117,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 555
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": "p_78e09601",
+      "baseRef": "p_085943aa",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": 212,
+        "engineReportedMs": 233,
+        "wrapperOverheadMs": 15,
+        "cumulativeTests": 45,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000074",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 55,
+      "seq": 63,
+      "workDirId": "000076",
+      "eventKind": "CANCELLED",
+      "status": "CANCELLED",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 75,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"d\\n\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 117,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 557
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\"d\\n\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 45,
+        "chars": 49,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000076",
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "no wrapper record; likely a global-execution-cache hit"
+      }
+    },
+    {
+      "index": 56,
+      "seq": 64,
+      "workDirId": "000078",
+      "eventKind": "CANCELLED",
+      "status": "CANCELLED",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 77,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"%\\n\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 117,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 559
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\"%\\n\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 209,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 45,
+        "chars": 49,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000078",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 57,
+      "seq": 66,
+      "workDirId": "000082",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 81,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 555,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 563
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\"\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 169,
+        "engineReportedMs": 191,
+        "wrapperOverheadMs": 15,
+        "cumulativeTests": 46,
+        "chars": 46,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000082",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 58,
+      "seq": 67,
+      "workDirId": "000084",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 83,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"d\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 555,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 565
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\"d\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 169,
+        "engineReportedMs": 194,
+        "wrapperOverheadMs": 14,
+        "cumulativeTests": 47,
+        "chars": 47,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000084",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 59,
+      "seq": 68,
+      "workDirId": "000086",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 85,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"%\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 555,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 567
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\"%\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 170,
+        "engineReportedMs": 202,
+        "wrapperOverheadMs": 18,
+        "cumulativeTests": 48,
+        "chars": 47,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000086",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 60,
+      "seq": 69,
+      "workDirId": "000088",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 87,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\" d\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 555,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 569
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\" d\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 183,
+        "engineReportedMs": 203,
+        "wrapperOverheadMs": 13,
+        "cumulativeTests": 49,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000088",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 61,
+      "seq": 70,
+      "workDirId": "000090",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 89,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"!d\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 555,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 571
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\"!d\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 181,
+        "engineReportedMs": 199,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 50,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000090",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 62,
+      "seq": 71,
+      "workDirId": "000092",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 91,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"% \"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 555,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 573
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\"% \"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 179,
+        "engineReportedMs": 202,
+        "wrapperOverheadMs": 9,
+        "cumulativeTests": 51,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000092",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 63,
+      "seq": 72,
+      "workDirId": "000094",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 93,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"%!\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 555,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 575
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\"%!\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 180,
+        "engineReportedMs": 201,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 52,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000094",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 64,
+      "seq": 73,
+      "workDirId": "000096",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 95,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme 'b'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 530,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 577
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -11,7 +11,7 @@\n (\n \"%d\"\n ,\n-a\n+b\n )\n ;\n }\n",
+      "metrics": {
+        "testDurationMs": 20,
+        "engineReportedMs": 36,
+        "wrapperOverheadMs": 10,
+        "cumulativeTests": 53,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000096",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 65,
+      "seq": 74,
+      "workDirId": "000097",
+      "eventKind": "TEST_EXECUTION",
+      "status": "INTERESTING",
+      "becameBest": true,
+      "exitCode": 0,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 2,
+      "editId": 96,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 2 lexer nodes with new lexeme 'b'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 529,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 578
+        },
+        {
+          "nodeId": 530,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 579
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": "p_c53e981e",
+      "baseRef": "p_78e09601",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": 270,
+        "engineReportedMs": 286,
+        "wrapperOverheadMs": 9,
+        "cumulativeTests": 54,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000097",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 66,
+      "seq": 76,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 98,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 583,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 668
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 1,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 54,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 67,
+      "seq": 77,
+      "workDirId": "000100",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 97,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 583,
+          "ruleName": "functionDefinition",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 665
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 5,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -1,17 +1,5 @@\n-main\n-(\n-)\n-{\n int\n b\n =\n 42\n ;\n-printf\n-(\n-\"%d\"\n-,\n-b\n-)\n-;\n-}\n",
+      "metrics": {
+        "testDurationMs": 218,
+        "engineReportedMs": 239,
+        "wrapperOverheadMs": 9,
+        "cumulativeTests": 55,
+        "chars": 13,
+        "lines": 5
+      },
+      "provenance": {
+        "workDirId": "000100",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 68,
+      "seq": 78,
+      "workDirId": "000101",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 100,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:optional__compoundStatement_1]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 590,
+          "ruleName": "kleene_plus__blockItemList_3",
+          "ruleType": "KLEENE_PLUS",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 5,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -2,16 +2,4 @@\n (\n )\n {\n-int\n-b\n-=\n-42\n-;\n-printf\n-(\n-\"%d\"\n-,\n-b\n-)\n-;\n }\n",
+      "metrics": {
+        "testDurationMs": 223,
+        "engineReportedMs": 237,
+        "wrapperOverheadMs": 9,
+        "cumulativeTests": 56,
+        "chars": 13,
+        "lines": 5
+      },
+      "provenance": {
+        "workDirId": "000101",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 69,
+      "seq": 79,
+      "workDirId": "000102",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 101,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "[kleene_plus:kleene_plus__blockItemList_3]remove whole except first",
+        "type": "DELETE"
+      },
+      "targets": [
+        {
+          "nodeId": 595,
+          "ruleName": "expressionStatement",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 10,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -7,11 +7,4 @@\n =\n 42\n ;\n-printf\n-(\n-\"%d\"\n-,\n-b\n-)\n-;\n }\n",
+      "metrics": {
+        "testDurationMs": 275,
+        "engineReportedMs": 294,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 57,
+        "chars": 26,
+        "lines": 10
+      },
+      "provenance": {
+        "workDirId": "000102",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 70,
+      "seq": 80,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 102,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__blockItemList_3]dd@2",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 595,
+          "ruleName": "expressionStatement",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        },
+        {
+          "nodeId": 665,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 5,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 57,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 71,
+      "seq": 81,
+      "workDirId": "000104",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 103,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_plus:kleene_plus__blockItemList_3]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 665,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 12,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -2,11 +2,6 @@\n (\n )\n {\n-int\n-b\n-=\n-42\n-;\n printf\n (\n \"%d\"\n",
+      "metrics": {
+        "testDurationMs": 33,
+        "engineReportedMs": 56,
+        "wrapperOverheadMs": 14,
+        "cumulativeTests": 58,
+        "chars": 35,
+        "lines": 12
+      },
+      "provenance": {
+        "workDirId": "000104",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 72,
+      "seq": 82,
+      "workDirId": "000105",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 104,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 595,
+          "ruleName": "expressionStatement",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 597
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 11,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -7,11 +7,5 @@\n =\n 42\n ;\n-printf\n-(\n-\"%d\"\n-,\n-b\n-)\n ;\n }\n",
+      "metrics": {
+        "testDurationMs": 319,
+        "engineReportedMs": 342,
+        "wrapperOverheadMs": 15,
+        "cumulativeTests": 59,
+        "chars": 28,
+        "lines": 11
+      },
+      "provenance": {
+        "workDirId": "000105",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 73,
+      "seq": 83,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 105,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:optional__postfixExpression_1]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 614,
+          "ruleName": "postfixExpression",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 11,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 59,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 74,
+      "seq": 84,
+      "workDirId": "000107",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 106,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 614,
+          "ruleName": "postfixExpression",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 663
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 12,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -8,10 +8,5 @@\n 42\n ;\n printf\n-(\n-\"%d\"\n-,\n-b\n-)\n ;\n }\n",
+      "metrics": {
+        "testDurationMs": 16,
+        "engineReportedMs": 42,
+        "wrapperOverheadMs": 17,
+        "cumulativeTests": 60,
+        "chars": 35,
+        "lines": 12
+      },
+      "provenance": {
+        "workDirId": "000107",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 75,
+      "seq": 85,
+      "workDirId": "000108",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 108,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 614,
+          "ruleName": "postfixExpression",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 661
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 12,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -7,11 +7,6 @@\n =\n 42\n ;\n-printf\n-(\n \"%d\"\n-,\n-b\n-)\n ;\n }\n",
+      "metrics": {
+        "testDurationMs": 219,
+        "engineReportedMs": 241,
+        "wrapperOverheadMs": 14,
+        "cumulativeTests": 61,
+        "chars": 33,
+        "lines": 12
+      },
+      "provenance": {
+        "workDirId": "000108",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 76,
+      "seq": 86,
+      "workDirId": "000109",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 107,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 614,
+          "ruleName": "postfixExpression",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 622
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 14,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -7,11 +7,8 @@\n =\n 42\n ;\n-printf\n-(\n \"%d\"\n ,\n b\n-)\n ;\n }\n",
+      "metrics": {
+        "testDurationMs": 204,
+        "engineReportedMs": 226,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 62,
+        "chars": 37,
+        "lines": 14
+      },
+      "provenance": {
+        "workDirId": "000109",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 77,
+      "seq": 87,
+      "workDirId": "000110",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 109,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 665,
+          "ruleName": "aux_rule__declaration_3",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 668
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 13,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -2,10 +2,6 @@\n (\n )\n {\n-int\n-b\n-=\n-42\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 16,
+        "engineReportedMs": 34,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 63,
+        "chars": 37,
+        "lines": 13
+      },
+      "provenance": {
+        "workDirId": "000110",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 78,
+      "seq": 88,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 110,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:kleene_star__postfixExpression_2]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 618,
+          "ruleName": "aux_rule__postfixExpression_11",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 12,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 63,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 79,
+      "seq": 89,
+      "workDirId": "000112",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 111,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 701,
+          "ruleName": "directDeclarator",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 709
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 15,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -1,6 +1,4 @@\n main\n-(\n-)\n {\n int\n b\n",
+      "metrics": {
+        "testDurationMs": 23,
+        "engineReportedMs": 45,
+        "wrapperOverheadMs": 13,
+        "cumulativeTests": 64,
+        "chars": 44,
+        "lines": 15
+      },
+      "provenance": {
+        "workDirId": "000112",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 80,
+      "seq": 90,
+      "workDirId": "000113",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 112,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:optional__declaration_2]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 670,
+          "ruleName": "initDeclarator",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 14,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -3,9 +3,6 @@\n )\n {\n int\n-b\n-=\n-42\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 18,
+        "engineReportedMs": 38,
+        "wrapperOverheadMs": 13,
+        "cumulativeTests": 65,
+        "chars": 41,
+        "lines": 14
+      },
+      "provenance": {
+        "workDirId": "000113",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 81,
+      "seq": 91,
+      "workDirId": "000114",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 113,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 670,
+          "ruleName": "initDeclarator",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 696
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 15,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -4,8 +4,6 @@\n {\n int\n b\n-=\n-42\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 288,
+        "engineReportedMs": 306,
+        "wrapperOverheadMs": 10,
+        "cumulativeTests": 66,
+        "chars": 43,
+        "lines": 15
+      },
+      "provenance": {
+        "workDirId": "000114",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 82,
+      "seq": 92,
+      "workDirId": "000115",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 114,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:optional__postfixExpression_1]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 622,
+          "ruleName": "expression",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 14,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -9,9 +9,6 @@\n ;\n printf\n (\n-\"%d\"\n-,\n-b\n )\n ;\n }\n",
+      "metrics": {
+        "testDurationMs": 21,
+        "engineReportedMs": 41,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 67,
+        "chars": 39,
+        "lines": 14
+      },
+      "provenance": {
+        "workDirId": "000115",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 83,
+      "seq": 93,
+      "workDirId": "000116",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 115,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 622,
+          "ruleName": "expression",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 661
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 15,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -10,8 +10,6 @@\n printf\n (\n \"%d\"\n-,\n-b\n )\n ;\n }\n",
+      "metrics": {
+        "testDurationMs": 210,
+        "engineReportedMs": 229,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 68,
+        "chars": 44,
+        "lines": 15
+      },
+      "provenance": {
+        "workDirId": "000116",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 84,
+      "seq": 94,
+      "workDirId": "000118",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 117,
+      "transformation": {
+        "editClass": "DescendantHoistingTreeEdit",
+        "actionsDescription": "[regular node]compatible replacement",
+        "type": "HOIST"
+      },
+      "targets": [
+        {
+          "nodeId": 622,
+          "ruleName": "expression",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 644
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 15,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -9,8 +9,6 @@\n ;\n printf\n (\n-\"%d\"\n-,\n b\n )\n ;\n",
+      "metrics": {
+        "testDurationMs": 261,
+        "engineReportedMs": 282,
+        "wrapperOverheadMs": 14,
+        "cumulativeTests": 69,
+        "chars": 41,
+        "lines": 15
+      },
+      "provenance": {
+        "workDirId": "000118",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 85,
+      "seq": 95,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 118,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:kleene_star__directDeclarator_7]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 705,
+          "ruleName": "aux_rule__directDeclarator_15",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 15,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 69,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 86,
+      "seq": 96,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 119,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:optional__initDeclarator_2]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 673,
+          "ruleName": "aux_rule__initDeclarator_1",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 15,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 69,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 87,
+      "seq": 97,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "node_priority-dfs",
+      "reducerPass": 3,
+      "editId": 120,
+      "transformation": {
+        "editClass": "NodeDeletionTreeEdit",
+        "actionsDescription": "DFS in org.perses.reduction.reducer.PersesNodeReducer[kleene_star:kleene_star__expression_1]dd@1",
+        "type": "DELTA_DEBUG"
+      },
+      "targets": [
+        {
+          "nodeId": 625,
+          "ruleName": "aux_rule__expression_2",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": null
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 15,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 69,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 88,
+      "seq": 98,
+      "workDirId": "000122",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 121,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme 'a'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 709,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 711
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -1,4 +1,4 @@\n-main\n+a\n (\n )\n {\n",
+      "metrics": {
+        "testDurationMs": 324,
+        "engineReportedMs": 344,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 70,
+        "chars": 45,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000122",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 89,
+      "seq": 99,
+      "workDirId": "000124",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 123,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme 'a'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 696,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 713
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -3,7 +3,7 @@\n )\n {\n int\n-b\n+a\n =\n 42\n ;\n",
+      "metrics": {
+        "testDurationMs": 20,
+        "engineReportedMs": 38,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 71,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000124",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 90,
+      "seq": 100,
+      "workDirId": "000125",
+      "eventKind": "TEST_EXECUTION",
+      "status": "INTERESTING",
+      "becameBest": true,
+      "exitCode": 0,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 124,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 2 lexer nodes with new lexeme 'a'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 644,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 715
+        },
+        {
+          "nodeId": 696,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 714
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": "p_78e09601",
+      "baseRef": "p_c53e981e",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": 278,
+        "engineReportedMs": 298,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 72,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000125",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 91,
+      "seq": 102,
+      "workDirId": "000126",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 125,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '0'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 693,
+          "ruleName": "Constant",
+          "ruleType": null,
+          "replacingNodeId": 716
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -5,7 +5,7 @@\n int\n a\n =\n-42\n+0\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 208,
+        "engineReportedMs": 226,
+        "wrapperOverheadMs": 10,
+        "cumulativeTests": 73,
+        "chars": 47,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000126",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 92,
+      "seq": 103,
+      "workDirId": "000128",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 127,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '1'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 693,
+          "ruleName": "Constant",
+          "ruleType": null,
+          "replacingNodeId": 718
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -5,7 +5,7 @@\n int\n a\n =\n-42\n+1\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 209,
+        "engineReportedMs": 228,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 74,
+        "chars": 47,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000128",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 93,
+      "seq": 104,
+      "workDirId": "000130",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 129,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '4'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 693,
+          "ruleName": "Constant",
+          "ruleType": null,
+          "replacingNodeId": 720
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -5,7 +5,7 @@\n int\n a\n =\n-42\n+4\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 274,
+        "engineReportedMs": 293,
+        "wrapperOverheadMs": 10,
+        "cumulativeTests": 75,
+        "chars": 47,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000130",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 94,
+      "seq": 105,
+      "workDirId": "000134",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 133,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '12'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 693,
+          "ruleName": "Constant",
+          "ruleType": null,
+          "replacingNodeId": 724
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -5,7 +5,7 @@\n int\n a\n =\n-42\n+12\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 296,
+        "engineReportedMs": 316,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 76,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000134",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 95,
+      "seq": 106,
+      "workDirId": "000136",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 135,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '22'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 693,
+          "ruleName": "Constant",
+          "ruleType": null,
+          "replacingNodeId": 726
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -5,7 +5,7 @@\n int\n a\n =\n-42\n+22\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 247,
+        "engineReportedMs": 266,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 77,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000136",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 96,
+      "seq": 107,
+      "workDirId": "000138",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 137,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '40'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 693,
+          "ruleName": "Constant",
+          "ruleType": null,
+          "replacingNodeId": 728
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -5,7 +5,7 @@\n int\n a\n =\n-42\n+40\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 239,
+        "engineReportedMs": 259,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 78,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000138",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 97,
+      "seq": 108,
+      "workDirId": "000140",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 139,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '41'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 693,
+          "ruleName": "Constant",
+          "ruleType": null,
+          "replacingNodeId": 730
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -5,7 +5,7 @@\n int\n a\n =\n-42\n+41\n ;\n printf\n (\n",
+      "metrics": {
+        "testDurationMs": 322,
+        "engineReportedMs": 338,
+        "wrapperOverheadMs": 10,
+        "cumulativeTests": 79,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000140",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 98,
+      "seq": 109,
+      "workDirId": "000142",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 141,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme 'a'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 663,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 732
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -7,7 +7,7 @@\n =\n 42\n ;\n-printf\n+a\n (\n \"%d\"\n ,\n",
+      "metrics": {
+        "testDurationMs": 15,
+        "engineReportedMs": 33,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 80,
+        "chars": 43,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000142",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 99,
+      "seq": 110,
+      "workDirId": "000144",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 143,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme 'b'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 663,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 734
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -7,7 +7,7 @@\n =\n 42\n ;\n-printf\n+b\n (\n \"%d\"\n ,\n",
+      "metrics": {
+        "testDurationMs": 291,
+        "engineReportedMs": 306,
+        "wrapperOverheadMs": 10,
+        "cumulativeTests": 81,
+        "chars": 43,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000144",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 100,
+      "seq": 111,
+      "workDirId": "000146",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 145,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 662,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 736
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\"\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 282,
+        "engineReportedMs": 299,
+        "wrapperOverheadMs": 10,
+        "cumulativeTests": 82,
+        "chars": 46,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000146",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 101,
+      "seq": 112,
+      "workDirId": null,
+      "eventKind": "CACHE_HIT",
+      "status": "CACHE_HIT",
+      "becameBest": false,
+      "exitCode": null,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 147,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 662,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 738
+        }
+      ],
+      "tokensBefore": null,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": null,
+        "engineReportedMs": null,
+        "wrapperOverheadMs": null,
+        "cumulativeTests": 82,
+        "chars": null,
+        "lines": null
+      },
+      "provenance": {
+        "workDirId": null,
+        "matched": false,
+        "source": "LISTENER_ONLY",
+        "note": "query-cache hit; no script executed"
+      }
+    },
+    {
+      "index": 102,
+      "seq": 113,
+      "workDirId": "000150",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 149,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"d\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 662,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 740
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\"d\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 225,
+        "engineReportedMs": 244,
+        "wrapperOverheadMs": 11,
+        "cumulativeTests": 83,
+        "chars": 47,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000150",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 103,
+      "seq": 114,
+      "workDirId": "000152",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 151,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"%\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 662,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 742
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\"%\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 221,
+        "engineReportedMs": 239,
+        "wrapperOverheadMs": 10,
+        "cumulativeTests": 84,
+        "chars": 47,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000152",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 104,
+      "seq": 115,
+      "workDirId": "000154",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 153,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\" d\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 662,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 744
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\" d\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 223,
+        "engineReportedMs": 253,
+        "wrapperOverheadMs": 10,
+        "cumulativeTests": 85,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000154",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 105,
+      "seq": 116,
+      "workDirId": "000156",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 155,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"!d\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 662,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 746
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\"!d\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 214,
+        "engineReportedMs": 233,
+        "wrapperOverheadMs": 10,
+        "cumulativeTests": 86,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000156",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 106,
+      "seq": 117,
+      "workDirId": "000158",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 157,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"% \"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 662,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 748
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\"% \"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 217,
+        "engineReportedMs": 252,
+        "wrapperOverheadMs": 25,
+        "cumulativeTests": 87,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000158",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 107,
+      "seq": 118,
+      "workDirId": "000160",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 159,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme '\"%!\"'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 662,
+          "ruleName": "StringLiteral",
+          "ruleType": null,
+          "replacingNodeId": 750
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -9,7 +9,7 @@\n ;\n printf\n (\n-\"%d\"\n+\"%!\"\n ,\n a\n )\n",
+      "metrics": {
+        "testDurationMs": 223,
+        "engineReportedMs": 254,
+        "wrapperOverheadMs": 23,
+        "cumulativeTests": 88,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000160",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 108,
+      "seq": 119,
+      "workDirId": "000162",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 161,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 1 lexer nodes with new lexeme 'b'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 715,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 752
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": null,
+      "baseRef": "p_78e09601",
+      "patch": "--- best\n+++ candidate\n@@ -11,7 +11,7 @@\n (\n \"%d\"\n ,\n-a\n+b\n )\n ;\n }\n",
+      "metrics": {
+        "testDurationMs": 27,
+        "engineReportedMs": 54,
+        "wrapperOverheadMs": 15,
+        "cumulativeTests": 89,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000162",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 109,
+      "seq": 120,
+      "workDirId": "000163",
+      "eventKind": "TEST_EXECUTION",
+      "status": "INTERESTING",
+      "becameBest": true,
+      "exitCode": 0,
+      "reducer": "token_canonicalizer",
+      "reducerPass": 4,
+      "editId": 162,
+      "transformation": {
+        "editClass": "AnyNodeReplacementTreeEdit",
+        "actionsDescription": "replace 2 lexer nodes with new lexeme 'b'",
+        "type": "REPLACE"
+      },
+      "targets": [
+        {
+          "nodeId": 714,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 753
+        },
+        {
+          "nodeId": 715,
+          "ruleName": "Identifier",
+          "ruleType": null,
+          "replacingNodeId": 754
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 17,
+      "programRef": "p_c53e981e",
+      "baseRef": "p_78e09601",
+      "patch": null,
+      "metrics": {
+        "testDurationMs": 316,
+        "engineReportedMs": 340,
+        "wrapperOverheadMs": 16,
+        "cumulativeTests": 90,
+        "chars": 48,
+        "lines": 17
+      },
+      "provenance": {
+        "workDirId": "000163",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    },
+    {
+      "index": 110,
+      "seq": 123,
+      "workDirId": "000164",
+      "eventKind": "TEST_EXECUTION",
+      "status": "REJECTED",
+      "becameBest": false,
+      "exitCode": 1,
+      "reducer": "FineGritLatraReducer",
+      "reducerPass": 5,
+      "editId": 164,
+      "transformation": {
+        "editClass": "LatraGeneralTreeEdit",
+        "actionsDescription": "Latra Transformation RemoveAssignment created by LatraRewriterBuilderForSimpleFromToPattern",
+        "type": "LATRA"
+      },
+      "targets": [
+        {
+          "nodeId": 844,
+          "ruleName": "initDeclaratorList",
+          "ruleType": "OTHER_RULE",
+          "replacingNodeId": 20296
+        }
+      ],
+      "tokensBefore": 17,
+      "tokensAfter": 15,
+      "programRef": null,
+      "baseRef": "p_c53e981e",
+      "patch": "--- best\n+++ candidate\n@@ -3,8 +3,6 @@\n )\n {\n int\n-b\n-=\n 42\n ;\n printf\n",
+      "metrics": {
+        "testDurationMs": 37,
+        "engineReportedMs": 58,
+        "wrapperOverheadMs": 12,
+        "cumulativeTests": 91,
+        "chars": 44,
+        "lines": 15
+      },
+      "provenance": {
+        "workDirId": "000164",
+        "matched": true,
+        "source": "BOTH",
+        "note": null
+      }
+    }
+  ]
+}
